@@ -1,0 +1,54 @@
+{
+	"name": "tldraw-sync-rivet",
+	"private": true,
+	"version": "0.0.0",
+	"author": {
+		"name": "tldraw GB Ltd.",
+		"email": "hello@tldraw.com"
+	},
+	"homepage": "https://tldraw.dev",
+	"license": "MIT",
+	"type": "module",
+	"tldraw_template": {
+		"repo": "tldraw/tldraw-sync-rivet",
+		"cli": {
+			"name": "Multiplayer",
+			"description": "Real-time multiplayer with a self-hosted backend.",
+			"shortDescription": "Real-time multiplayer.",
+			"order": 2
+		},
+		"scripts": {
+			"lint": null
+		}
+	},
+	"scripts": {
+		"dev": "concurrently \"vite\" \"tsx --watch server/server.ts\" --names \"vite,server\" --prefix-colors \"blue,green\"",
+		"build": "tsc && vite build",
+		"lint": "yarn run -T tsx ../../internal/scripts/lint.ts",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@hono/node-server": "^1.19.5",
+		"@hono/node-ws": "^1.2.0",
+		"@rivetkit/react": "https://pkg.pr.new/rivet-dev/rivet/@rivetkit/react@ea8ef90",
+		"@tldraw/sync": "workspace:*",
+		"@tldraw/sync-core": "workspace:*",
+		"@tldraw/tlschema": "workspace:*",
+		"itty-router": "^5.0.18",
+		"lodash.throttle": "^4.1.1",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-router-dom": "^6.28.2",
+		"rivetkit": "https://pkg.pr.new/rivet-dev/rivet/rivetkit@ea8ef90",
+		"tldraw": "workspace:*"
+	},
+	"devDependencies": {
+		"@types/lodash.throttle": "^4.1.9",
+		"@types/react": "^18.3.18",
+		"@types/react-dom": "^18.3.5",
+		"@vitejs/plugin-react-swc": "^3.10.2",
+		"concurrently": "^9.1.2",
+		"typescript": "^5.8.3",
+		"vite": "^7.0.1"
+	}
+}
